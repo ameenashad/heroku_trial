@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-3 col-md-offset-5">
+    <h1>Heroku</h1>
+    <h3>User Details</h3>
+    <strong>Name: </strong><%= @user_info["name"] %><br>
+    <strong>Email: </strong><%= @user_info["email"] %><br>
+    <strong>Last Login: </strong><%= @user_info["last_login"] %><br><br>
+
+    <!-- List Apps Here -->
+
+    <h3>Apps</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <td><b>#</b></td>
+          <td><b>Name</b></td>
+          <td><b>Released at</b></td>
+        </tr>
+      </thead>
+      <% @apps.each_with_index do |app, index| %>
+        <tbody>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= app["name"] %></td>
+            <td><%= app["released_at"] %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+    <%= link_to 'Create New', new_app_path, { class: "button btn btn-success" } %>
+  </div>
+</div>
